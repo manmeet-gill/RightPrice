@@ -1,0 +1,18 @@
+.resultContainer{
+    border-style: solid;
+    border-width: 2px;
+    flex-direction: column;
+}
+
+.information{
+    padding-left: 5%;
+    display: inline-block;
+}
+
+.mainTitle{
+    text-decoration: underline;
+}
+
+.mainImage{
+    width: 25%;
+}
