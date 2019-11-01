@@ -27,6 +27,7 @@ const useStyles = makeStyles(styles);
 export default function SearchPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+
   return (
     <div>
       <Header
@@ -45,7 +46,7 @@ export default function SearchPage(props) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem>
-              <h1 className={classes.title}>You Searched for:</h1>
+              <h1 className={classes.title}>You Searched for: iPhone 7</h1>
               <br />
             </GridItem>
           </GridContainer>

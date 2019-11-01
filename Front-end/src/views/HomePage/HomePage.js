@@ -21,11 +21,30 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 // Sections for this page
 import InfoSection from "./Sections/InfoSection.js";
-
-
-const dashboardRoutes = [];
+import AboutSection from "./Sections/AboutSection.js";
+import SearchSection from "./Sections/SearchSection.js";
+import ResultSection from "./Sections/ResultSection.js";
+import AboutTeamSection from "./Sections/AboutTeamSection.js";
 
 const useStyles = makeStyles(styles);
+const searchRef = React.createRef();
+const resultRef = React.createRef();
+
+export function scrollToSearch(){
+  console.log(searchRef);
+  searchRef.current.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+}
+
+export function scrollToResult(){
+  console.log(resultRef);
+  resultRef.current.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+}
 
 export default function HomePage(props) {
   const classes = useStyles();
@@ -33,44 +52,31 @@ export default function HomePage(props) {
 
   return (
     <div>
-      <Header
-        color="transparent"
-        routes={dashboardRoutes}
-        brand="RightPrice"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "white"
-        }}
-        {...rest}
-      />
       <Parallax filter image={require("assets/img/landing-bg.jpg")}>
         <div className={classes.container}>
-          <GridContainer justify="center">
-            <GridItem justify="center">
-              <h1 className={classes.title}>What are you looking for?</h1>
-              <GridItem>
-                <CustomInput
-                    labelText="Search for an item. Eg. iPhone 7"
-                    id="float"
-                    white
-                    formControlProps={{
-                        fullWidth: true,
-                        color: "default"
-                    }}
-                />
-
-                <Button className={classes.title} href="/search" color="rose"><Search />Search</Button>
-              </GridItem>
-              <br />
-            </GridItem>
-          </GridContainer>
+          <AboutSection />
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
+
+      <div className={classNames(classes.main)}>
+        <div className={classes.container} ref={searchRef}>
+          <SearchSection />
+        </div>
+      </div>
+
+      <br />
+
+      <div className={classNames(classes.main)}>
+        <div className={classes.container} ref={resultRef}>
+          <ResultSection />
+        </div>
+      </div>
+
+      <br />
+
+      <div className={classNames(classes.main)}>
         <div className={classes.container}>
-          <InfoSection />
+          <AboutTeamSection />
         </div>
       </div>
       <Footer />
