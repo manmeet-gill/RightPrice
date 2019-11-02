@@ -44,8 +44,8 @@ export function scrollToSearch(){
 
 export function scrollToResult(){
   var searchQuery = "http://ec2-3-15-200-193.us-east-2.compute.amazonaws.com/predict2?brand=" + userSelectedBrand + 
-  "&colour=" + userSelectedColor + "&condition=" + userSelectedCondition + "&contract=" + userSelectedContract + 
-  "&memory=" + userSelectedMemory + "&mobos=" + userSelectedMobos + "&model=" + userSelectedModel; 
+  "&colour=" + encodeURI(userSelectedColor) + "&condition=" + encodeURI(userSelectedCondition) + "&contract=" + encodeURI(userSelectedContract) + 
+  "&memory=" + encodeURI(userSelectedMemory) + "&mobos=" + encodeURI(userSelectedMobos) + "&model=" + encodeURI(userSelectedModel); 
 
   console.log(searchQuery);
 
