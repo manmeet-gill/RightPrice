@@ -1,0 +1,77 @@
+{
+    "brand":{
+        "1": {"value" : "samsung", "label" : "Samsung"},
+        "2": {"value" : "blu", "label" : "Blu"},
+        "3": {"value" : "apple", "label" : "Apple"},
+        "4": {"value" : "motorola", "label" : "Motorola"},
+        "5": {"value" : "lg", "label" : "Lg"},
+        "6": {"value" : "zte", "label" : "Zte"},
+        "7": {"value" : "google", "label" : "Google"},
+        "8": {"value" : "one plus", "label" : "One Plus"},
+        "9": {"value" : "nokia", "label" : "Nokia"},
+        "10": {"value" : "blackberry", "label" : "Blackberry"},
+        "11": {"value" : "alcatel", "label" : "Alcatel"},
+        "12": {"value" : "xiaomi", "label" : "Xioami"},
+        "13": {"value" : "htc", "label" : "Htc"},
+        "14": {"value" : "huawei", "label" : "Huawei"},
+        "15": {"value" : "sony", "label" : "Sony"},
+        "16": {"value" : "vivo", "label" : "Vivo"},
+        "17": {"value" : "razer", "label" : "Razer"},
+        "18": {"value" : "asus", "label" : "Asus"},
+        "19": {"value" : "oppo", "label" : "Oppo"},
+        "20": {"value" : "volte", "label" : "Volte"},
+        "21": {"value" : "soyes", "label" : "Soyes"},
+        "22": {"value" : "casio", "label" : "Casio"}
+    },
+    "color":{
+        "1": {"value": "grey", "label": "Grey"},
+        "2": {"value": "red", "label": "Red"},
+        "3": {"value": "white", "label": "White"},
+        "4": {"value": "black", "label": "Black"},
+        "5": {"value": "rose", "label": "Rose"},
+        "6": {"value": "silver", "label": "Silver"},
+        "7": {"value": "gold", "label": "Gold"},
+        "8": {"value": "blue", "label": "Blue"},
+        "9": {"value": "purple", "label": "Purple"},
+        "10": {"value": "green", "label": "Green"},
+        "11": {"value": "pink", "label": "Pink"},
+        "12": {"value": "rosegold", "label": "Rose Gold"},
+        "13": {"value": "space grey", "label": "Space Grey"},
+        "14": {"value": "unknow", "label": "Unknown"}
+    },
+    "condition":{
+        "1": {"value": "salvage", "label": "Salvage"},
+        "2": {"value": "fair", "label": "Fair"},
+        "3": {"value": "like new", "label": "Like New"},
+        "4": {"value": "good", "label": "Good"},
+        "5": {"value": "excellent", "label": "Excellent"},
+        "6": {"value": "perfect", "label": "Perfect"},
+        "7": {"value": "unknown", "label": "Unknown"}
+    },
+    "contract":{
+        "1": {"value": "sprint", "label": "Sprint"},
+        "2": {"value": "verizon", "label": "Verizon"},
+        "3": {"value": "t-mobile", "label": "T-Mobile"},
+        "4": {"value": "at&t", "label": "AT&T"},
+        "5": {"value": "unlocked", "label": "Unlocked"}
+    },
+    "memory":{
+        "1": {"value": "8", "label": "8GB"},
+        "2": {"value": "16", "label": "16GB"},
+        "3": {"value": "32", "label": "32GB"},
+        "4": {"value": "64", "label": "64GB"},
+        "5": {"value": "128", "label": "128GB"},
+        "6": {"value": "256", "label": "256GB"}
+    },
+    "mobos":{
+        "1": {"value": "android", "label": "Android"},
+        "2": {"value": "apple ios", "label": "Apple iOS"},
+        "3": {"value": "windows mobile", "label": "Windows Mobile"},
+        "4": {"value": "other", "label": "Other"}
+    },
+    "model":{
+        "1": {"value": "y85", "label": "y85"},
+        "2": {"value": "s10 plus", "label": "s10 plus"},
+        "3": {"value": "iphone 7", "label": "iPhone 7"}
+    }
+}

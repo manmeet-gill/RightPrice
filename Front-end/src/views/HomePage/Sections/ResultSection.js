@@ -15,6 +15,8 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
+import {returnPredictedValue} from "../HomePage"
+
 const useStyles = makeStyles(styles);
 
 export default function ResultSection() {
@@ -23,7 +25,7 @@ export default function ResultSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classes.title}>Result from API here</h2>
+            <h2 className={classes.title}>Value from API here</h2>
         </GridItem>
       </GridContainer>
     </div>
