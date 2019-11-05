@@ -73,6 +73,10 @@
         "1": {"value": "y85", "label": "y85"},
         "2": {"value": "s10 plus", "label": "s10 plus"},
         "3": {"value": "iphone 7", "label": "iPhone 7"},
-        "4": {"value": "iphone x", "label": "iPhone X"}
+        "4": {"value": "iphone 8 plus", "label": "iPhone 8 Plus"},
+        "5": {"value": "note 8", "label": "Note 8"},
+        "6": {"value": "iphone xr", "label": "iPhone XR"},
+        "7": {"value": "iphone 6 plus", "label": "iPhone 6 Plus"},
+        "8": {"value": "iphone 6s", "label": "iPhone 6s"}
     }
 }

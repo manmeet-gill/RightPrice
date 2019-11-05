@@ -195,7 +195,7 @@ export default function HomePage(props) {
         </div>
       </Parallax>
 
-      <div className={classNames(classes.main)} style={{"height": "850px"}}>
+      <div className={classNames(classes.main)}>
         <div className={classes.container} ref={searchRef}>
           <SearchSection />
         </div>

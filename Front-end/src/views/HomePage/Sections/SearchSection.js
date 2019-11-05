@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Phone from "@material-ui/icons/Smartphone";
 import Computer from "@material-ui/icons/Computer";
 import Money from "@material-ui/icons/Money";
+import Warning from "@material-ui/icons/Warning";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -14,6 +15,8 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
 import Radio from "@material-ui/core/Radio";
 import Select from 'react-select';
+import SnackbarContent from "components/Snackbar/SnackbarContent.js";
+
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
@@ -26,6 +29,7 @@ const useStyles = makeStyles(styles);
 export default function SearchSection(props) {
   const classes = useStyles();
   const { ...rest } = props;
+
   return (
     <div className={classes.section}>
         <h2 className={classes.title}>Search for an item:</h2>
@@ -95,6 +99,60 @@ export default function SearchSection(props) {
 
         <GridItem xs={12} sm={12} md={12}>
             <Button type="button" color="info" onClick={scrollToResult}>Search</Button>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={12}>
+            <h2></h2>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={12}>
+        <SnackbarContent
+        message={
+          <span>
+            <b>WARNING ALERT:</b> Please ensure that all of the fields above have a value
+            selected.
+          </span>
+        }
+        color="warning"
+        icon={Warning}
+        styles={classes.close}
+        />
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={12}>
+            <h2></h2>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={12}>
+            <h2></h2>
+        </GridItem>
+        
+        <GridItem xs={12} sm={12} md={12}>
+            <h2></h2>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={12}>
+            <h2></h2>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={12}>
+            <h2></h2>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={12}>
+            <h2></h2>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={12}>
+            <h2></h2>
+        </GridItem>
+        
+        <GridItem xs={12} sm={12} md={12}>
+            <h2></h2>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={12}>
+            <h2></h2>
         </GridItem>
       </GridContainer>
     </div>
