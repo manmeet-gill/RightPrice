@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -33,7 +33,7 @@ const resultRef = React.createRef();
 var data = require("../../data/cellphoneData.json");
 
 var userSelectedBrand, userSelectedColor, userSelectedCondition, 
-userSelectedContract, userSelectedMemory, userSelectedMobos, userSelectedModel, predictedValue = null;
+userSelectedContract, userSelectedMemory, userSelectedMobos, userSelectedModel = null;
 
 export function scrollToSearch(){
   searchRef.current.scrollIntoView({
@@ -42,23 +42,33 @@ export function scrollToSearch(){
   });
 }
 
-export function scrollToResult(){
+export function scrollToResult(updateAPI, updatePhoneType, updateColor, updateCondition, updateContract, updateMemory,
+  updateMobos, updateModel){
+  var api = "http://18.216.159.52";
   var searchQuery = "http://ec2-3-15-200-193.us-east-2.compute.amazonaws.com/predict2?brand=" + userSelectedBrand + 
   "&colour=" + encodeURI(userSelectedColor) + "&condition=" + encodeURI(userSelectedCondition) + "&contract=" + encodeURI(userSelectedContract) + 
   "&memory=" + encodeURI(userSelectedMemory) + "&mobos=" + encodeURI(userSelectedMobos) + "&model=" + encodeURI(userSelectedModel); 
 
-  console.log(searchQuery);
+  //console.log(searchQuery);
 
   fetch(searchQuery)
   .then((result)=> result.json())
-  .then(data=>{
-    console.log(data);
-    predictedValue = data;
-  });
+  .then(apiData=>{
+    console.log(apiData);
 
-  resultRef.current.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
+    updatePhoneType(userSelectedBrand);
+    updateColor(userSelectedColor);
+    updateCondition(userSelectedCondition);
+    updateContract(userSelectedContract);
+    updateMemory(userSelectedMemory);
+    updateMobos(userSelectedMobos);
+    updateModel(userSelectedModel);
+    updateAPI("Average Price $" + Math.round(apiData.predict));
+
+    resultRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   });
 }
 
@@ -179,13 +189,33 @@ export function loadDataFromJSON(e){
   }
 }
 
-export function returnPredictedValue(){
-  return predictedValue;
-}
-
 export default function HomePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+  const [apiData, setAPIData] = useState(
+    "Value from API here"
+  );
+  const [phoneType, setPhoneType] = useState(
+    null
+  )
+  const [color, setColor] = useState(
+    null
+  )
+  const [condition, setCondition] = useState(
+    null
+  )
+  const [contract, setContract] = useState(
+    null
+  )
+  const [memory, setMemory] = useState(
+    null
+  )
+  const [mobos, setMobos] = useState(
+    null
+  )
+  const [model, setModel] = useState(
+    null
+  )
 
   return (
     <div>
@@ -197,7 +227,9 @@ export default function HomePage(props) {
 
       <div className={classNames(classes.main)}>
         <div className={classes.container} ref={searchRef}>
-          <SearchSection />
+          <SearchSection updateAPIFunction={setAPIData} setPhoneType={setPhoneType} setColor={setColor}
+          setCondition={setCondition} setContract={setContract} setMemory={setMemory} setMobos={setMobos} 
+          setModel={setModel}/>
         </div>
       </div>
 
@@ -206,7 +238,8 @@ export default function HomePage(props) {
 
       <div className={classNames(classes.main)}>
         <div className={classes.container} ref={resultRef}>
-          <ResultSection />
+          <ResultSection apiValue={apiData} phoneType={phoneType} color={color} condition={condition}
+          contract={contract} memory={memory} mobos={mobos} model={model}/>
         </div>
       </div>
 

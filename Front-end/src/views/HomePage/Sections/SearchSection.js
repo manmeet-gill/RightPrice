@@ -98,7 +98,10 @@ export default function SearchSection(props) {
         </GridItem>
 
         <GridItem xs={12} sm={12} md={12}>
-            <Button type="button" color="info" onClick={scrollToResult}>Search</Button>
+            <Button type="button" color="info" onClick={(event) => { 
+                scrollToResult(props.updateAPIFunction, props.setPhoneType, props.setColor, props.setCondition,
+                    props.setContract, props.setMemory, props.setMobos, props.setModel);
+                }}>Search</Button>
         </GridItem>
 
         <GridItem xs={12} sm={12} md={12}>
@@ -109,13 +112,13 @@ export default function SearchSection(props) {
         <SnackbarContent
         message={
           <span>
-            <b>WARNING ALERT:</b> Please ensure that all of the fields above have a value
-            selected.
+            <b>WARNING:</b> Please ensure that all of the fields above have a value
+            selected for the best results.
           </span>
         }
+        open="false"
         color="warning"
         icon={Warning}
-        styles={classes.close}
         />
         </GridItem>
 

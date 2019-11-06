@@ -25,6 +25,10 @@ export default function AboutSection() {
         <GridItem xs={12} sm={12} md={8}>
             <h2 className={classes.title}>About our team here</h2>
         </GridItem>
+
+        <GridItem xs={12} sm={12} md={8}>
+            <h4 className={classes.description}>Extended Description here.</h4>
+        </GridItem>
       </GridContainer>
     </div>
   );

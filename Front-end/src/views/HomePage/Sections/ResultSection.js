@@ -15,17 +15,45 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
-import {returnPredictedValue} from "../HomePage"
+import {returnPredictedValue} from "../HomePage.js"
 
 const useStyles = makeStyles(styles);
 
-export default function ResultSection() {
+export default function ResultSection(props) {
   const classes = useStyles();
+  const { ...rest } = props;
+  
   return (
     <div className={classes.section}>
       <GridContainer justify="center">
+        <GridItem xs={12} sm={12} md={12}>
+            <h3 className={classes.title}>Selected Features:</h3>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={4}>
+            <h4 className={classes.title}>Phone Type: {props.phoneType}</h4>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={4}>
+            <h4 className={classes.title}>Color: {props.color}</h4>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={4}>
+            <h4 className={classes.title}>Condition: {props.condition}</h4>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={4}>
+            <h4 className={classes.title}>Contract: {props.contract}</h4>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={4}>
+            <h4 className={classes.title}>Memory: {props.memory}</h4>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={4}>
+            <h4 className={classes.title}>Mobos: {props.mobos}</h4>
+        </GridItem>
         <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classes.title}>Value from API here</h2>
+            <h4 className={classes.title}>Model: {props.model}</h4>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={8}>
+            <h2 className={classes.title}>{props.apiValue}</h2>
         </GridItem>
       </GridContainer>
     </div>
