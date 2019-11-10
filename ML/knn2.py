@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 
 # load data from csv
 print("Load data...")
-data = pd.read_csv('data.csv', keep_default_na=False)
+data = pd.read_csv('clean_data.csv', keep_default_na=False)
 dataset = data.values[:,1:]
 
 # memory and prices parse to integer

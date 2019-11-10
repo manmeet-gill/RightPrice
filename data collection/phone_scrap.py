@@ -27,7 +27,11 @@ class PhoneScraper(scrapy.Spider):
                     'https://orangecounty.craigslist.org/search/moa',
                     'https://palmsprings.craigslist.org/search/moa',
                     'https://sacramento.craigslist.org/search/moa',
-                    'https://newyork.craigslist.org/search/moa']
+                    'https://newyork.craigslist.org/search/moa',
+                    'https://seattle.craigslist.org/search/moa',
+                    'https://chicago.craigslist.org/search/moa',
+                    'https://miami.craigslist.org/search/moa',
+                    'https://washingtondc.craigslist.org/search/moa']
 
     def parse(self, response):
     	next_page_url = response.css(".button.next ::attr(href)")
@@ -50,8 +54,8 @@ class PhoneScraper(scrapy.Spider):
             item_title = resource.css("a ::text").extract_first().lower()
             item['date'] = resource.css("time ::attr(datetime)").extract_first()
 
-            if price >= 11 and price <= 1100:
-                if "headphon" in item_title or "case" in item_title or "repair" in item_title or "table" in item_title or "batery" in item_title or "watch" in item_title or "charg" in item_title or "tv" in item_title or "kindle" in item_title or "ipad" in item_title or "ipod" in item_title or "headset" in item_title:
+            if price >= 31 and price <= 1100:
+                if "headphon" in item_title or "case" in item_title or "buy" in item_title or "repair" in item_title or "table" in item_title or "batery" in item_title or "watch" in item_title or "charg" in item_title or "tv" in item_title or "kindle" in item_title or "ipad" in item_title or "ipod" in item_title or "headset" in item_title:
                     pass
                 else:
                     item['title'] = item_title
