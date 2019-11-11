@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>Ola's blog</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <form style="margin-top: 100px;" id="main-form">
+                    <div class="form-group row">
+                        <label for="input_brand" class="col-sm-3 col-form-label" style="line-height: 34px;">Brand</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="input_brand" placeholder="Please input brand">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_colour" class="col-sm-3 col-form-label" style="line-height: 34px;">Colour</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="input_colour" placeholder="Please input Colour">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_condition" class="col-sm-3 col-form-label" style="line-height: 34px;">Condition</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="input_condition" placeholder="Please input Condition">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_contract" class="col-sm-3 col-form-label" style="line-height: 34px;">Contract</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="input_contract" placeholder="Please input Contract">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_memory" class="col-sm-3 col-form-label" style="line-height: 34px;">Memory</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="input_memory" placeholder="Please input Memory">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_mobos" class="col-sm-3 col-form-label" style="line-height: 34px;">Mobile OS</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="input_mobos" placeholder="Please input OS">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input_model" class="col-sm-3 col-form-label" style="line-height: 34px;">Model</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="input_model" placeholder="Please input Model">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-3"></div>
+                        <button class="btn btn-primary col-sm-6" id="send-request">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        $('#send-request').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+              type: "GET",
+              url: '/predict',
+              data: {
+                  brand: $('#input_brand').val(),
+                  colour: $('#input_colour').val(),
+                  condition: $('#input_condition').val(),
+                  contract: $('#input_contract').val(),
+                  memory: $('#input_memory').val(),
+                  mobos: $('#input_mobos').val(),
+                  model: $('#input_model').val(),
+              }
+            })
+            .always(function(res) {
+                console.log(res);
+                alert( res.predict );
+            });
+        })
+    </script>
+</html>
