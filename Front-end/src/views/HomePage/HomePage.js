@@ -56,13 +56,33 @@ export function scrollToResult(updateAPI, updatePhoneType, updateColor, updateCo
   .then(apiData=>{
     console.log(apiData);
 
-    updatePhoneType(userSelectedBrand);
-    updateColor(userSelectedColor);
-    updateCondition(userSelectedCondition);
-    updateContract(userSelectedContract);
-    updateMemory(userSelectedMemory);
-    updateMobos(userSelectedMobos);
-    updateModel(userSelectedModel);
+    if(userSelectedBrand != null){
+      updatePhoneType(userSelectedBrand.charAt(0).toUpperCase() + userSelectedBrand.substring(1));
+    }
+
+    if(userSelectedColor != null){
+      updateColor(userSelectedColor.charAt(0).toUpperCase() + userSelectedColor.substring(1));
+    }
+
+    if(userSelectedCondition != null){
+      updateCondition(userSelectedCondition.charAt(0).toUpperCase() + userSelectedCondition.substring(1));
+    }
+
+    if(userSelectedContract != null){
+      updateContract(userSelectedContract.charAt(0).toUpperCase() + userSelectedContract.substring(1));
+    }
+
+    if(userSelectedMemory != null){
+      updateMemory(userSelectedMemory.charAt(0).toUpperCase() + userSelectedMemory.substring(1) + "GB");
+    }
+
+    if(userSelectedMobos != null){
+      updateMobos(userSelectedMobos.charAt(0).toUpperCase() + userSelectedMobos.substring(1));
+    }
+
+    if(userSelectedModel != null){
+      updateModel(userSelectedModel.charAt(0).toUpperCase() + userSelectedModel.substring(1));
+    }
     updateAPI("Average Price $" + Math.round(apiData.predict));
 
     resultRef.current.scrollIntoView({
