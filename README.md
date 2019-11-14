@@ -8,7 +8,7 @@
 ### Back-End
     Django Python hosted on EC2 server
 ### API
-    [Example API Link] (https://master.dm8gjsj35mxwk.amplifyapp.com/) 
+    [Example API Link](http://ec2-3-15-200-193.us-east-2.compute.amazonaws.com/predict2?brand=apple&colour=red&condition=fair&contract=t-mobile&memory=64&mobos=apple%20ios&model=iphone%207)
 
 ## Available Scripts
 
