@@ -17,6 +17,8 @@ import Button from 'components/CustomButtons/Button.js';
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 import SnackbarContent from "components/Snackbar/SnackbarContent.js";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
@@ -30,6 +32,8 @@ import AboutTeamSection from "./Sections/AboutTeamSection.js";
 const useStyles = makeStyles(styles);
 const searchRef = React.createRef();
 const resultRef = React.createRef();
+const startRef = React.createRef();
+const aboutTeamRef = React.createRef();
 
 var data = require("../../data/cellphoneData.json");
 
@@ -38,6 +42,27 @@ userSelectedContract, userSelectedMemory, userSelectedMobos, userSelectedModel =
 
 export function scrollToSearch(){
   searchRef.current.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+}
+
+export function navbarScrollToResult(){
+  resultRef.current.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+}
+
+export function navbarScrollToStart(){
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+export function navbarScrollToAboutTeam(){
+  aboutTeamRef.current.scrollIntoView({
     behavior: 'smooth',
     block: 'start',
   });
@@ -207,7 +232,15 @@ export function loadDataFromJSON(e, brand){
       if(brand != null){
         //Populate mobos dropdown
         for(var i = 1; i <= count; i++){
-          mobos.push(data.mobos[i]);
+          if(brand == "apple"){
+            if(data.mobos[i].value == "apple ios" || data.mobos[i].value == "other"){
+              mobos.push(data.mobos[i]);
+            }
+          }else{
+            if(data.mobos[i].value == "android" || data.mobos[i].value == "other"){
+              mobos.push(data.mobos[i]);
+            }
+          }
         }
       
         return mobos;
@@ -249,7 +282,7 @@ export default function HomePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   const [apiData, setAPIData] = useState(
-    "Value from API here"
+    ""
   );
   const [phoneType, setPhoneType] = useState(
     null
@@ -285,10 +318,31 @@ export default function HomePage(props) {
     loadDataFromJSON("mobos")
   )
 
+  const navBarLinks = 
+    <List className={classes.list}>
+      <ListItem className={classes.listItem}>
+        <Button color="transparent" className={classes.navLink} onClick={navbarScrollToStart}>Getting Started</Button>
+        <Button color="transparent" className={classes.navLink} onClick={scrollToSearch}>Search</Button>
+        <Button color="transparent" className={classes.navLink} onClick={navbarScrollToResult}>Results</Button>
+        <Button color="transparent" className={classes.navLink} onClick={navbarScrollToAboutTeam}>About the Team</Button>
+      </ListItem>
+    </List>
+
   return (
     <div>
+      <Header
+        color="transparent"
+        brand="RightPrice"
+        rightLinks={navBarLinks}
+        fixed
+        changeColorOnScroll={{
+          height: 200,
+          color: "white"
+        }}
+        {...rest}
+      />
       <Parallax filter image={require("assets/img/landing-bg.jpg")}>
-        <div className={classes.container}>
+        <div className={classes.container} ref={startRef}>
           <AboutSection />
         </div>
       </Parallax>
@@ -317,7 +371,7 @@ export default function HomePage(props) {
       <br />
 
       <div className={classNames(classes.main)}>
-        <div className={classes.container}>
+        <div className={classes.container} ref={aboutTeamRef}>
           <AboutTeamSection />
         </div>
       </div>
