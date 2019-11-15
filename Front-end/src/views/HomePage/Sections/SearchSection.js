@@ -105,7 +105,7 @@ export default function SearchSection(props) {
             <Button type="button" color="info" onClick={(event) => { 
                 scrollToResult(props.updateAPIFunction, props.setPhoneType, props.setColor, props.setCondition,
                     props.setContract, props.setMemory, props.setMobos, props.setModel, props.setError, 
-                    props.setErrorDisplay);
+                    props.setErrorDisplay, props.setResultDisplay, props.setHighValue, props.setLowValue);
                 }}>Search</Button>
         </GridItem>
 

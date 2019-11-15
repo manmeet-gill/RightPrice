@@ -69,7 +69,7 @@ export function navbarScrollToAboutTeam(){
 }
 
 export function scrollToResult(updateAPI, updatePhoneType, updateColor, updateCondition, updateContract, updateMemory,
-  updateMobos, updateModel, updateErrorMsg, showErrorDisplay){
+  updateMobos, updateModel, updateErrorMsg, showErrorDisplay, showResultSection, updateHighValue, updateLowValue){
   var api = "http://18.216.159.52";
   var searchQuery = "https://api.predictphoneapi.tech/predict??brand=" + userSelectedBrand + 
   "&colour=" + encodeURI(userSelectedColor) + "&condition=" + encodeURI(userSelectedCondition) + "&contract=" + encodeURI(userSelectedContract) + 
@@ -112,9 +112,11 @@ export function scrollToResult(updateAPI, updatePhoneType, updateColor, updateCo
       if(userSelectedModel != null){
         updateModel(userSelectedModel.charAt(0).toUpperCase() + userSelectedModel.substring(1));
       }
-      updateAPI("Average Price $" + Math.round(apiData.predict));
+
+      updateAPI(Math.round(apiData.predict));
       updateErrorMsg("");
-      showErrorDisplay("none")
+      showErrorDisplay("none");
+      showResultSection("inline");
 
       resultRef.current.scrollIntoView({
         behavior: 'smooth',
@@ -123,6 +125,7 @@ export function scrollToResult(updateAPI, updatePhoneType, updateColor, updateCo
     });
   }else{
     showErrorDisplay("inline");
+    showResultSection("none");
     updateErrorMsg("Atleast a phone model needs to be selected");
   }
 }
@@ -311,11 +314,20 @@ export default function HomePage(props) {
   const[errorDisplay, setErrorDisplay]= useState(
     "none"
   )
+  const[resultDisplay, setResultDisplay] = useState(
+    "none"
+  )
   const[modelData, setModelData] = useState(
     loadDataFromJSON("model")
   )
   const[mobosData, setMobosData] = useState(
     loadDataFromJSON("mobos")
+  )
+  const[highValue, setHighValue] = useState(
+    ""
+  )
+  const[lowValue, setLowValue] = useState(
+    ""
   )
 
   const navBarLinks = 
@@ -353,7 +365,8 @@ export default function HomePage(props) {
           setCondition={setCondition} setContract={setContract} setMemory={setMemory} setMobos={setMobos} 
           setModel={setModel} setError={setErrorMsg} errorMsg={errorMsg} errorDisplay={errorDisplay} 
           setErrorDisplay={setErrorDisplay} modelData={modelData} setModelData={setModelData} mobosData={mobosData}
-          setMobosData={setMobosData}/>
+          setMobosData={setMobosData} setResultDisplay={setResultDisplay} setHighValue={setHighValue} 
+          setLowValue={setLowValue}/>
         </div>
       </div>
 
@@ -363,7 +376,8 @@ export default function HomePage(props) {
       <div className={classNames(classes.main)}>
         <div className={classes.container} ref={resultRef}>
           <ResultSection apiValue={apiData} phoneType={phoneType} color={color} condition={condition}
-          contract={contract} memory={memory} mobos={mobos} model={model}/>
+          contract={contract} memory={memory} mobos={mobos} model={model} showResults={resultDisplay} highValue={highValue}
+          lowValue={lowValue}/>
         </div>
       </div>
 
