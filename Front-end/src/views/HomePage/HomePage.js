@@ -46,7 +46,7 @@ export function scrollToSearch(){
 export function scrollToResult(updateAPI, updatePhoneType, updateColor, updateCondition, updateContract, updateMemory,
   updateMobos, updateModel, updateErrorMsg, showErrorDisplay){
   var api = "http://18.216.159.52";
-  var searchQuery = "http://ec2-3-15-200-193.us-east-2.compute.amazonaws.com/predict2?brand=" + userSelectedBrand + 
+  var searchQuery = "https://api.predictphoneapi.tech/predict??brand=" + userSelectedBrand + 
   "&colour=" + encodeURI(userSelectedColor) + "&condition=" + encodeURI(userSelectedCondition) + "&contract=" + encodeURI(userSelectedContract) + 
   "&memory=" + encodeURI(userSelectedMemory) + "&mobos=" + encodeURI(userSelectedMobos) + "&model=" + encodeURI(userSelectedModel); 
 
