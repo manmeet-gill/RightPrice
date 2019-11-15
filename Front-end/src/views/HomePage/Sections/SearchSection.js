@@ -3,9 +3,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import Phone from "@material-ui/icons/Smartphone";
-import Computer from "@material-ui/icons/Computer";
-import Money from "@material-ui/icons/Money";
 import Warning from "@material-ui/icons/Warning";
 
 // core components
@@ -15,7 +12,6 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
 import Radio from "@material-ui/core/Radio";
 import Select from 'react-select';
-import SnackbarContent from "components/Snackbar/SnackbarContent.js";
 
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
@@ -30,6 +26,13 @@ export default function SearchSection(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
+  const errorStyle = {
+    backgroundColor: "#fcba03",
+    color: "white",
+    display: props.errorDisplay,
+    padding: "10px"
+  };
+
   return (
     <div className={classes.section}>
         <h2 className={classes.title}>Search for an item:</h2>
@@ -38,7 +41,8 @@ export default function SearchSection(props) {
             <h4 className={classes.title}>Phone type:</h4>
             <Select className={classes.description}
             placeholder="Select a brand"
-            onChange={brandValue}
+            onChange={(event) => { 
+                brandValue(event, props.setModelData, props.setMobosData);}}
             options={loadDataFromJSON("brand")}
             />
         </GridItem>
@@ -84,7 +88,7 @@ export default function SearchSection(props) {
             <Select className={classes.description}
             placeholder="Select a Mobos"
             onChange={mobosValue}
-            options={loadDataFromJSON("mobos")}
+            options={props.mobosData}
             />
         </GridItem>
 
@@ -93,14 +97,15 @@ export default function SearchSection(props) {
             <Select className={classes.description}
             placeholder="Select a Model"
             onChange={modelValue}
-            options={loadDataFromJSON("model")}
+            options={props.modelData}
             />
         </GridItem>
 
         <GridItem xs={12} sm={12} md={12}>
             <Button type="button" color="info" onClick={(event) => { 
                 scrollToResult(props.updateAPIFunction, props.setPhoneType, props.setColor, props.setCondition,
-                    props.setContract, props.setMemory, props.setMobos, props.setModel);
+                    props.setContract, props.setMemory, props.setMobos, props.setModel, props.setError, 
+                    props.setErrorDisplay);
                 }}>Search</Button>
         </GridItem>
 
@@ -109,17 +114,7 @@ export default function SearchSection(props) {
         </GridItem>
 
         <GridItem xs={12} sm={12} md={12}>
-        <SnackbarContent
-        message={
-          <span>
-            <b>WARNING:</b> Please ensure that all of the fields above have a value
-            selected for the best results.
-          </span>
-        }
-        open="false"
-        color="warning"
-        icon={Warning}
-        />
+            <h3 className={classes.title} style={errorStyle}>{props.errorMsg}</h3>
         </GridItem>
 
         <GridItem xs={12} sm={12} md={12}>

@@ -70,13 +70,13 @@
         "4": {"value": "other", "label": "Other"}
     },
     "model":{
-        "1": {"value": "y85", "label": "y85"},
-        "2": {"value": "s10 plus", "label": "s10 plus"},
-        "3": {"value": "iphone 7", "label": "iPhone 7"},
-        "4": {"value": "iphone 8 plus", "label": "iPhone 8 Plus"},
-        "5": {"value": "note 8", "label": "Note 8"},
-        "6": {"value": "iphone xr", "label": "iPhone XR"},
-        "7": {"value": "iphone 6 plus", "label": "iPhone 6 Plus"},
-        "8": {"value": "iphone 6s", "label": "iPhone 6s"}
+        "1": {"value": "y85", "label": "y85", "brand": "vivo"},
+        "2": {"value": "s10 plus", "label": "s10 plus", "brand": "samsung"},
+        "3": {"value": "iphone 7", "label": "iPhone 7", "brand": "apple"},
+        "4": {"value": "iphone 8 plus", "label": "iPhone 8 Plus", "brand": "apple"},
+        "5": {"value": "note 8", "label": "Note 8", "brand": "samsung"},
+        "6": {"value": "iphone xr", "label": "iPhone XR", "brand": "apple"},
+        "7": {"value": "iphone 6 plus", "label": "iPhone 6 Plus", "brand": "apple"},
+        "8": {"value": "iphone 6s", "label": "iPhone 6s", "brand": "apple"}
     }
 }
