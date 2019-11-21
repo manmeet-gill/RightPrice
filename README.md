@@ -19,6 +19,6 @@ In the front-end project directory, you can run:
 This runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view in a browser.
 
-### Usage Instructions
+## Usage Instructions
 1. Select all of the parameters from the dropdown menus (A phone model must be selected)
 2. Press "Search" and the application will display and appropriate value.
