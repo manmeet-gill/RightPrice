@@ -3,6 +3,9 @@
 ## Live Demo
 [https://master.dm8gjsj35mxwk.amplifyapp.com/](https://master.dm8gjsj35mxwk.amplifyapp.com/) 
 
+## Video Demo
+[https://youtu.be/7whil9Q4Q1E](https://youtu.be/7whil9Q4Q1E)
+
 ### Front-End
     React JS
 ### Back-End
