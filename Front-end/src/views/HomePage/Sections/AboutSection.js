@@ -27,7 +27,7 @@ export default function AboutSection(props){
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title} style={{"color": "white"}}>Getting Started</h2>
+          <h2 className={classes.title} style={{"color": "white"}}>Getting Started with RightPrice</h2>
           <h5 className={classes.description} style={{"color": "white"}}>
             Our service is simple. Open the wesbite and search for an item, then our program will return
             an average price for that particular item. That way you know that you're getting the best deal.

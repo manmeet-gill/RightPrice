@@ -12,11 +12,21 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
 import Button from "components/CustomButtons/Button.js";
+import Tooltip from "@material-ui/core/Tooltip";
 
-import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
+import productStyles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
+import stylesTwo from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 import Bc from "./bc.js"
 import Sc from "./scatter.js"
+
+import visualizationOne from "../visualizationOne.jpg"
+import visualizationTwo from "../visualizationTwo.jpg"
+
+const styles = {
+    ...productStyles,
+    ...stylesTwo
+};
 
 const useStyles = makeStyles(styles);
 
@@ -29,23 +39,22 @@ export default function GraphSection() {
             <h2 className={classes.title}>Graph Visualizations</h2>
         </GridItem>
 
-        <GridItem xs={2} sm={2} md={2}>
+        <GridItem xs={10} sm={10} md={12}>
+            <Tooltip id="tooltip-left" title="Average Prices for each unique cellphone brand" 
+            placement="left" classes={{ tooltip: classes.tooltip }}>
+                <img src={visualizationOne} width="700"></img>
+            </Tooltip>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={12}>
             <h2></h2>
         </GridItem>
 
-        <GridItem xs={10} sm={10} md={10}>
-            <Bc />
-        </GridItem>
-
-        <br />
-        <br />
-
-        <GridItem xs={2} sm={2} md={2}>
-            <h2></h2>
-        </GridItem>
-
-        <GridItem xs={12} sm={12} md={10}>
-            <Sc />
+        <GridItem xs={12} sm={12} md={12}>
+            <Tooltip id="tooltip-left" title="Price-Quality Trends of various cellphones" 
+            placement="left" classes={{ tooltip: classes.tooltip }}>
+                <img src={visualizationTwo} width="800"></img>
+            </Tooltip>
         </GridItem>
       </GridContainer>
     </div>

@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import Search from '@material-ui/icons/Search.js';
 import Warning from "@material-ui/icons/Warning";
+import logo from "./mainLogo.png"
 
 // core components
 import Header from "components/Header/Header.js";
@@ -339,22 +340,43 @@ export default function HomePage(props) {
     ""
   )
 
+  const headerStyle={
+    "font-family": "fantasy",
+    "font-size": "15px",
+    "font-weight": "bold"
+    
+  }
+
   const navBarLinks = 
     <List className={classes.list}>
-      <ListItem className={classes.listItem}>
-        <Button color="transparent" className={classes.navLink} onClick={navbarScrollToStart}>Getting Started</Button>
-        <Button color="transparent" className={classes.navLink} onClick={scrollToSearch}>Search</Button>
-        <Button color="transparent" className={classes.navLink} onClick={navbarScrollToResult}>Results</Button>
-        <Button color="transparent" className={classes.navLink} onClick={scrollToVisualization}>Visualizations</Button>
-        <Button color="transparent" className={classes.navLink} onClick={navbarScrollToAboutTeam}>About the Team</Button>
-      </ListItem>
+      <GridContainer className={classes.listItem}>
+      <GridItem xs={12} sm={12} md={3}>
+        <Button color="transparent" className={classes.navLink} onClick={navbarScrollToStart} style={headerStyle}>Getting Started</Button>
+      </GridItem>
+
+      <GridItem xs={12} sm={12} md={3}>
+        <Button color="transparent" className={classes.navLink} onClick={scrollToSearch} style={headerStyle}>Search</Button>
+      </GridItem>
+
+      <GridItem xs={12} sm={12} md={3}>
+        <Button color="transparent" className={classes.navLink} onClick={navbarScrollToResult} style={headerStyle}>Results</Button>
+      </GridItem>
+      
+      <GridItem xs={12} sm={12} md={3}>
+        <Button color="transparent" className={classes.navLink} onClick={scrollToVisualization} style={headerStyle}>Visualizations</Button>
+      </GridItem>
+
+      <GridItem xs={12} sm={12} md={3}>
+        <Button color="transparent" className={classes.navLink} onClick={navbarScrollToAboutTeam} style={headerStyle}>About the Team</Button>
+      </GridItem>
+      </GridContainer>
     </List>
 
   return (
     <div>
       <Header
         color="transparent"
-        brand="RightPrice"
+        brand={<img src={logo} width="150"/>}
         rightLinks={navBarLinks}
         fixed
         changeColorOnScroll={{
