@@ -7,3 +7,11 @@ $ pip install plotly==4.2.1
 $ pip install pandas
 ```
 Depending on the installation use pip3 or your python-3 compatible pip service.
+
+
+## Frontend
+```
+$ npm install
+$ npm start
+```
+Uses the scraped data to create react components 
