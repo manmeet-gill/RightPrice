@@ -1,5 +1,5 @@
 # Data Collection
 
- ## Install Scrapy
+## Install Scrapy
 
-## run scrapy runspider *.py -o *.csv
+`run scrapy runspider *.py -o *.csv`
