@@ -15,19 +15,37 @@ import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
+import Bc from "./bc.js"
+import Sc from "./scatter.js"
+
 const useStyles = makeStyles(styles);
 
-export default function AboutSection() {
+export default function GraphSection() {
   const classes = useStyles();
   return (
     <div className={classes.section}>
       <GridContainer justify="center">
-        <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classes.title}>About the members behind RightPrice</h2>
+        <GridItem xs={12} sm={12} md={12}>
+            <h2 className={classes.title}>Graph Visualizations</h2>
         </GridItem>
 
-        <GridItem xs={12} sm={12} md={8}>
-            <h4 className={classes.description}>Team Members: Manpreet Singh, Karthik Tella, Manmeet Gill, Sidarth Shahri</h4>
+        <GridItem xs={2} sm={2} md={2}>
+            <h2></h2>
+        </GridItem>
+
+        <GridItem xs={10} sm={10} md={10}>
+            <Bc />
+        </GridItem>
+
+        <br />
+        <br />
+
+        <GridItem xs={2} sm={2} md={2}>
+            <h2></h2>
+        </GridItem>
+
+        <GridItem xs={12} sm={12} md={10}>
+            <Sc />
         </GridItem>
       </GridContainer>
     </div>

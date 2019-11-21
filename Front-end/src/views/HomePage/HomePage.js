@@ -28,12 +28,14 @@ import AboutSection from "./Sections/AboutSection.js";
 import SearchSection from "./Sections/SearchSection.js";
 import ResultSection from "./Sections/ResultSection.js";
 import AboutTeamSection from "./Sections/AboutTeamSection.js";
+import GraphSection from "./Sections/GraphSection.js";
 
 const useStyles = makeStyles(styles);
 const searchRef = React.createRef();
 const resultRef = React.createRef();
 const startRef = React.createRef();
 const aboutTeamRef = React.createRef();
+const graphRef = React.createRef();
 
 var data = require("../../data/cellphoneData.json");
 
@@ -42,6 +44,13 @@ userSelectedContract, userSelectedMemory, userSelectedMobos, userSelectedModel =
 
 export function scrollToSearch(){
   searchRef.current.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+}
+
+export function scrollToVisualization(){
+  graphRef.current.scrollIntoView({
     behavior: 'smooth',
     block: 'start',
   });
@@ -71,7 +80,7 @@ export function navbarScrollToAboutTeam(){
 export function scrollToResult(updateAPI, updatePhoneType, updateColor, updateCondition, updateContract, updateMemory,
   updateMobos, updateModel, updateErrorMsg, showErrorDisplay, showResultSection, updateHighValue, updateLowValue){
   var api = "http://18.216.159.52";
-  var searchQuery = "https://api.predictphoneapi.tech/predict??brand=" + userSelectedBrand + 
+  var searchQuery = "https://api.predictphoneapi.tech/predict2?brand=" + userSelectedBrand + 
   "&colour=" + encodeURI(userSelectedColor) + "&condition=" + encodeURI(userSelectedCondition) + "&contract=" + encodeURI(userSelectedContract) + 
   "&memory=" + encodeURI(userSelectedMemory) + "&mobos=" + encodeURI(userSelectedMobos) + "&model=" + encodeURI(userSelectedModel); 
 
@@ -336,6 +345,7 @@ export default function HomePage(props) {
         <Button color="transparent" className={classes.navLink} onClick={navbarScrollToStart}>Getting Started</Button>
         <Button color="transparent" className={classes.navLink} onClick={scrollToSearch}>Search</Button>
         <Button color="transparent" className={classes.navLink} onClick={navbarScrollToResult}>Results</Button>
+        <Button color="transparent" className={classes.navLink} onClick={scrollToVisualization}>Visualizations</Button>
         <Button color="transparent" className={classes.navLink} onClick={navbarScrollToAboutTeam}>About the Team</Button>
       </ListItem>
     </List>
@@ -385,10 +395,20 @@ export default function HomePage(props) {
       <br />
 
       <div className={classNames(classes.main)}>
+        <div className={classes.container} ref={graphRef}>
+          <GraphSection />
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <div className={classNames(classes.main)}>
         <div className={classes.container} ref={aboutTeamRef}>
           <AboutTeamSection />
         </div>
       </div>
+
       <Footer />
     </div>
   );
