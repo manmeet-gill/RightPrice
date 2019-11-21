@@ -6,8 +6,8 @@
 ### Front-End
     React JS
 ### Back-End
-    Django Python hosted on EC2 server
-### API
+    Django Python hosted on AWS-EC2 server
+### API Example
     http://ec2-3-15-200-193.us-east-2.compute.amazonaws.com/predict2?brand=apple&colour=red&condition=fair&contract=t-mobile&memory=64&mobos=apple%20ios&model=iphone%207
 
 ## Available Scripts
@@ -16,9 +16,9 @@ In the front-end project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view in a browser.
 
 ## Usage Instructions
-1. Select all of the parameters from the dropdown menus (Atleast a phone model is required)
-2. Search and the application will display and appropriate value.
+1. Select all of the parameters from the dropdown menus (A phone model must be selected)
+2. Press "Search" and the application will display and appropriate value.
