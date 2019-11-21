@@ -14,27 +14,27 @@
 
 1. First, clone the project into the desired directory:
 
-`git clone https://github.com/manmeet-gill/RightPrice.git`
+    `git clone https://github.com/manmeet-gill/RightPrice.git`
 
 2. Then, change directory to the project folder:
 
-`cd RightPrice`
+    `cd RightPrice`
 
-2. Next, change directory to the "Front-end" folder:
+3. Next, change directory to the "Front-end" folder:
 
-`cd Front-end`
+    `cd Front-end`
 
-3. If npm is not installed, install it with:
+4. If npm is not installed, install it with:
 
-`sudo apt install npm`
+    `sudo apt install npm`
 
-4. Next, install all dependencies for the project with:
+5. Next, install all dependencies for the project with:
 
- `npm install`
+    `npm install`
  
-5. Finally, start the local server by running:
+6. Finally, start the local server by running:
 
- `npm run start`
+    `npm run start`
 
 This runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view in a browser.
