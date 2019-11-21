@@ -12,21 +12,27 @@
 
 ## Getting Started
 
-First, clone the project.
+1. First, clone the project into the desired directory:
 
-Next, change directory to the "Front-end" folder:
+`git clone https://github.com/manmeet-gill/RightPrice.git`
+
+2. Then, change directory to the project folder:
+
+`cd RightPrice`
+
+2. Next, change directory to the "Front-end" folder:
 
 `cd Front-end`
 
-If npm is not installed, install it with:
+3. If npm is not installed, install it with:
 
 `sudo apt install npm`
 
-Next, install all dependencies for the project with:
+4. Next, install all dependencies for the project with:
 
  `npm install`
  
-Finally, start the local server by running:
+5. Finally, start the local server by running:
 
  `npm run start`
 
